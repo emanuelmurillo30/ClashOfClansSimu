@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+        <button mat-flat-button (click)="updateNivel()">Subir de nivel</button>
+        <span class="text">Nivel de Ayuntamiento: {{ dataAyuntamiento && dataAyuntamiento.nivel || 1}}</span>
+    </div>
+    <div style="margin-top: 1em;">
+        <span class="text">Oro Almacenado: {{ dataAyuntamiento && dataAyuntamiento.almacenamientoOro || 0}}</span>
+    </div>
+    <div style="margin-top: 1em;">
+        <span class="text">Elixir Almacenado: {{ dataAyuntamiento && dataAyuntamiento.almacenamientoElixir || 0}}</span>
+    </div>
+
+    <div style="margin-top: 1em;">
+        <span class="text">Numero de tropas: {{ dataAyuntamiento && dataAyuntamiento.tropas || 0}}</span>
+    </div>
+</div>

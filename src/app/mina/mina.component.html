@@ -1,0 +1,26 @@
+<div class="container">
+    <div>
+        <button mat-flat-button (click)="agregarMina()">Agregar Mina</button>
+        <span class="text">Minas agregadas: {{ dataMina && dataMina.cantidadMinas || 0}}</span>
+        <span class="text" style="margin-left: 2em;">Maximo de Minas por nivel de Ayuntamiento: {{ dataAyuntamiento && dataAyuntamiento.maximaCantidadMinaNivel || 0}}</span>
+    </div>
+</div>
+
+<div class="container-minas" *ngIf="dataMina.minas && dataMina.minas.length">
+    <span class="text" style="display: block; margin-top: 2em; margin-left: 3em;">Minas</span>
+    <div class="container" *ngFor="let item of dataMina.minas; index as i">
+        <div style="margin-top: 1em;">
+            <span class="text">#{{ (i + 1) }}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <button mat-flat-button (click)="recogerOro(i)">Recoger oro</button>
+        </div>
+        <div style="margin-top: 1em;">
+            <button mat-flat-button  (click)="updateNivel(i)">Subir de nivel</button>
+            <span class="text">Nivel de mina: {{ item && item.nivel || 1}}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <span class="text">Oro Producido: {{ item && item.producionOro || 0}}</span>
+        </div>
+    </div>
+</div>

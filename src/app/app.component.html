@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="wrapper">
+    <aside class="main_sidebar">
+        <ul>
+            <li><mat-icon>house</mat-icon><a [routerLink]="['/']" >Ayuntamiento</a></li>
+            <li><mat-icon>construction</mat-icon><a [routerLink]="['/mina']" >Mina</a></li>
+            <li><mat-icon>construction</mat-icon><a [routerLink]="['/elixir']" >Elixir</a></li>
+            <li><mat-icon>construction</mat-icon><a [routerLink]="['/cuartel']" >Cuartel</a></li>
+        </ul>
+    </aside>
+
+  </div>
+  
+  <div class="container-content">
+    <router-outlet></router-outlet>
+    
+  </div>
+</div>

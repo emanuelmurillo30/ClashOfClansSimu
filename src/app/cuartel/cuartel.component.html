@@ -1,0 +1,31 @@
+<div class="container">
+    <div>
+        <button mat-flat-button (click)="agregarCuartel()">Agregar Cuartel</button>
+        <span class="text">Cuarteles agregadas: {{ dataCuartel && dataCuartel.cantidadCuartel || 0}}</span>
+        <span class="text" style="margin-left: 2em;">Maximo de Cuarteles por nivel de Ayuntamiento: {{ dataAyuntamiento && dataAyuntamiento.maximaCantidadElixirNivel || 0}}</span>
+    </div>
+</div>
+
+<div class="container-elixir" *ngIf="dataCuartel.cuarteles && dataCuartel.cuarteles.length">
+    <span class="text" style="display: block; margin-top: 2em; margin-left: 3em;">Cuarteles</span>
+    <div class="container" *ngFor="let item of dataCuartel.cuarteles; index as i">
+        <div style="margin-top: 1em;">
+            <span class="text">#{{ (i + 1) }}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <button mat-flat-button  (click)="updateNivel(i)">Subir de nivel</button>
+            <span class="text">Nivel de Cuartel: {{ item && item.nivel || 1}}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <span class="text">Tropas en cola de produccion: {{ item && item.tropasColas || 0}}</span>
+        </div>
+        <mat-form-field  style="margin-top: 1em;">
+            <mat-label>Ingresar numero de tropas a produccir</mat-label>
+            <input matInput type="number" min="0" max="10" placeholder="0" [(ngModel)]="item.tropasColas" />
+
+            <div style="margin-top: 1em;" *ngIf="item.tropasColas > 10">
+                <span class="text">Error el numero de tropas debe ser menor o igual a 10</span>
+            </div>
+        </mat-form-field>
+    </div>
+</div>

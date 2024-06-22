@@ -1,0 +1,26 @@
+<div class="container">
+    <div>
+        <button mat-flat-button (click)="agregarElixir()">Agregar Elixir</button>
+        <span class="text">Elixirs agregadas: {{ dataElixir && dataElixir.cantidadElixirs || 0}}</span>
+        <span class="text" style="margin-left: 2em;">Maximo de Elixirs por nivel de Ayuntamiento: {{ dataAyuntamiento && dataAyuntamiento.maximaCantidadElixirNivel || 0}}</span>
+    </div>
+</div>
+
+<div class="container-elixir" *ngIf="dataElixir.elixirs && dataElixir.elixirs.length">
+    <span class="text" style="display: block; margin-top: 2em; margin-left: 3em;">Elixirs</span>
+    <div class="container" *ngFor="let item of dataElixir.elixirs; index as i">
+        <div style="margin-top: 1em;">
+            <span class="text">#{{ (i + 1) }}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <button mat-flat-button (click)="recogerElixir(i)">Recoger Elixir</button>
+        </div>
+        <div style="margin-top: 1em;">
+            <button mat-flat-button  (click)="updateNivel(i)">Subir de nivel</button>
+            <span class="text">Nivel de Elixir: {{ item && item.nivel || 1}}</span>
+        </div>
+        <div style="margin-top: 1em;">
+            <span class="text">Elixir Producido: {{ item && item.producionElixir || 0}}</span>
+        </div>
+    </div>
+</div>
